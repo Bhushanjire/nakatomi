@@ -106,35 +106,5 @@ public function getUserCount(){
     $responce =array('success'=>true,'data'=>'', 'admin_count'=>$adminCount, 'student_count'=>$studentCount,'message'=>'Admin and Student count');
     echo json_encode($responce);
 }
-
-public function insertLesson(){
-    if(!empty($this->postdata)){
-        $this->request = json_decode($this->postdata);
-        $user_id = $this->request->user_id??'';
-        $lesson_id = $this->request->lesson_id??'';
-        $lesson_status = $this->request->lesson_status??'';
-        $dialog_id = $this->request->dialog_id??'';
-        $video_status = $this->request->video_status??'';
-        $user_type = $this->request->user_type??'';    
-    }else{
-        $user_id = $this->input->post('user_id')??'';
-        $lesson_id = $this->input->post('lesson_id')??'';
-        $lesson_status = $this->input->post('lesson_status')??'';
-        $dialog_id = $this->input->post('dialog_id')??'';
-        $video_status = $this->input->post('video_status')??'';
-        $user_type = $this->input->post('user_type')??'';
-    }
-
-    $UserData = array(
-        "user_id" => $user_id,
-        "lesson_id" => $lesson_id,
-        "lesson_status" => $lesson_status,
-        "dialog_id" => $dialog_id,
-        "video_status" => $video_status,
-        "user_type" => $user_type
-    );
-    $this->lesson_model->insertUserLesson($UserData);
-}
-
 }
 ?>
