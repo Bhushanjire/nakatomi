@@ -13,7 +13,6 @@ public function McheckLessonUserExist($user_id,$lesson_id,$lesson_status){
 }
 public function insertUserLesson($UserData){
   return $this->db->insert('user_lessons',$UserData);
-
 }
 public function lessonLog($UserData){
   $this->db->insert('user_lessons_log',$UserData);
